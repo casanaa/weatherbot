@@ -5,23 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weatherbot</title>
-
-
     <link rel="stylesheet" href="style.css">
-</head>
+ </head>
 
-<body>
-    <nav class="navbar navbar-expand">
-        <div class="navbar-brand">
-            <div class="row justify-content-center">
-                <div class="col">
-                    <p class="title">Weatherbot</p>
-        </div>
+ <header><h1 class="fs-1 font-monospace">Weatherbot</h1></header>
 
+ <body>
     <div class="col" id="searchBox">
         <input class="form-control mr-sm-2" type="search" placeholder="Search by City or Zip">
-        wtx-context="FA79EC78-EC 7A-4C3B-8B60-016AF4C5BFFB"
     </div>
     <div class="col" id="searchButton">
         <a href="#" class="btn btn-md">
@@ -29,6 +20,67 @@
         </a>
     </div>
 
+    
+    <nav class="navbar navbar-expand">
+        <div class="navbar-brand">
+            <div class="col">
+    <div id="weather"></div>
 
-    <script src="assets/script.js"></script>
-</body>
+    
+
+    
+     
+<script>
+    const apiKey = '7a00518bfdcaa1219338b4fc4d884200';
+    const city = 'Lewisville'; 
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    async function getWeatherData() {
+        try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+        if (response.status === 200) {
+    const weatherList = data.list;
+
+        let weatherHtml = '';
+        for (let i = 0; i < weatherList.length; i++) {
+    const date = new Date(weatherList[i].dt * 1000);
+    const temperature = weatherList[i].main.temp;
+    const description = weatherList[i].weather[0].description;
+
+         weatherHtml += `
+         
+    <div class="card">
+         <p>Date: ${date.toLocaleDateString()}</p>
+        <p>Temperature: ${temperature}°C</p>
+        <p>Description: ${description}</p>
+        
+        <div class="card-content">
+            
+        </div>
+    </div>
+    </div>
+                        `;
+        }
+
+        document.getElementById('weather').innerHTML = weatherHtml;
+            } else {
+        console.error(`Error: ${data.message}`);
+                }
+            } catch (error) {
+        console.error('An error occurred while fetching weather data:', error);
+            }
+        }
+
+        getWeatherData(); 
+
+        
+                
+                
+
+
+ </script>
+
+ </body>
+
+</html>
