@@ -13,3 +13,7 @@ file:///C:/Users/anton/weatherbot/weatherbot/assets/index.html
 https://casanaa.github.io/weatherbot/ 
 
 ![image](https://github.com/casanaa/weatherbot/assets/133182324/0fd3ba67-6af5-4e02-bfdc-b870af6ccbe0)
+
+_____________________________________________________________________________________________________
+
+![image](https://github.com/casanaa/weatherbot/assets/133182324/7ed6e892-9a2c-4512-86d3-60d0e8ef2c12)
