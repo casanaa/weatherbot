@@ -9,5 +9,6 @@ When I open the live site, it only shows the name of the app. When I open the de
 When I open the app through VS Code, my actual code is displayed so not sure what is going on there.
 
 file:///C:/Users/anton/weatherbot/weatherbot/assets/index.html 
+
 https://casanaa.github.io/weatherbot/ 
 
